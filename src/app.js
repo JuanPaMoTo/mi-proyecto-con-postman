@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-// Rutas de la API
+// Puntos de entrada API
 app.use('/api', userRoutes);
 
 module.exports = app;
