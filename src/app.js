@@ -6,13 +6,13 @@ const app = express();
 
 app.use(express.json());
 
-// Servir archivos estáticos (index.html, main.js, etc.) desde la raíz
-app.use(express.static(path.join(process.cwd())));
+// Servir la carpeta raíz para que reconozca /src/main.js
+app.use(express.static(process.cwd()));
 
 // Rutas de la API
 app.use('/api', userRoutes);
 
-// Ruta principal para entregar index.html
+// Ruta para entregar el index.html
 app.get('/', (req, res) => {
   res.sendFile(path.join(process.cwd(), 'index.html'));
 });
