@@ -6,8 +6,8 @@ const app = express();
 
 app.use(express.json());
 
-// Sirve index.html, src/main.js, etc. desde la raíz del proyecto
-app.use(express.static(path.join(__dirname, '..')));
+// process.cwd() es más confiable que __dirname dentro de una función serverless en Vercel
+app.use(express.static(process.cwd()));
 
 // Rutas de la API
 app.use('/api', userRoutes);
